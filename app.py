@@ -48,10 +48,10 @@ def login():
             session["user"] = user
             return redirect("/")
         else:
-            return "<h3>❌ Login incorrecto</h3><a href='/login'>Volver</a>"
+            return "<h3> Login incorrecto</h3><a href='/login'>Volver</a>"
 
     return """
-    <h1>🔐 Login Inventario</h1>
+    <h1> Login Inventario</h1>
 
     <form method="post">
         Usuario:<br>
@@ -110,33 +110,33 @@ def inicio():
     <p>Total materiales: {total_items}</p>
     <p>Total unidades: {total_unidades}</p>
 
-    <h2>⚠️ Bajo stock</h2>
+    <h2> Bajo stock</h2>
     """
 
     if bajos:
         for b in bajos:
-            html += f"<p style='color:red;'>🔴 {b}</p>"
+            html += f"<p style='color:red;'> {b}</p>"
     else:
         html += "<p>Todo en niveles normales</p>"
 
     html += """
     <hr>
 
-    <h2>➕ Entrada</h2>
+    <h2> Entrada</h2>
     <form action="/entrada" method="post">
         Material: <input name="material"><br><br>
         Cantidad: <input type="number" name="cantidad"><br><br>
         <button>Agregar</button>
     </form>
 
-    <h2>➖ Salida</h2>
+    <h2> Salida</h2>
     <form action="/salida" method="post">
         Material: <input name="material"><br><br>
         Cantidad: <input type="number" name="cantidad"><br><br>
         <button>Retirar</button>
     </form>
 
-    <h2>📦 Inventario</h2>
+    <h2> Inventario</h2>
     """
 
     for m, c in datos:
